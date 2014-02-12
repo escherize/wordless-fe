@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="myApp"> <!-- initializes angular app-->
+<head>
+    <script src="resources/js/angular.js"></script>
+    <script src="main.js"></script>
+    <script src="resources/js/sigma.min.js"></script>
+    <script src="resources/js/plugins/sigma.parsers.json.min.js"></script>
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/bootstrap.css">
+<body class="col-md-2 col-md-offset-4">
+<div class="row">
+    <div class="title-text">WordLess</div>
+</div>
+    <div ng-controller="ThesaurusCtrl">
+    <form class="form-horizontal" ng-submit="sendRequest()">
+        <input class="input-lg" type="text" ng-model="myWord" size="30">
+        <input class="btn-primary btn-lg" type="submit">
+    </form>
+    <div>
+    {{myResponse}}
+    </div>
+</div>
+</body>
+</head>
+</html>
