@@ -2,7 +2,42 @@ body {
     background-color : #777;
 }
 
-.title-text{
-    font-size: 80px;
-    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+form{
+    margin: 0px 30px;
+}
+
+.title-text {
+    font-size: 90px;
+    font-family: 'Over the Rainbow', cursive;
+}
+
+.centered{
+    float: none;
+    margin: 0 auto;
+}
+
+#graph-container {
+    margin: 20px;
+
+}
+
+
+/* Stuff for SVG. */
+line {
+    stroke-width: 3;
+}
+
+
+rect {
+    fill: none;
+}
+
+.node {
+    /*stroke: #fff;*/
+    /*stroke-width: 2;*/
+}
+
+.link {
+    stroke: #CECECE;
+    stroke-opacity: .6;
 }

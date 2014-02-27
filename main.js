@@ -4,48 +4,100 @@ myApp.config(['$httpProvider', function($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
     delete $httpProvider.defaults.headers.common['Content-Type']}
+
 ]);
 
 function ThesaurusCtrl($scope, $http){
-    $scope.myWord = "lemon";
-    //$scope.myResponse = "{\"links\":[{\"value\":1,\"target\":\"stinker\",\"source\":\"lemon\"},{\"value\":1,\"target\":\"gamboge\",\"source\":\"lemon\"},{\"value\":1,\"target\":\"lemon yellow\",\"source\":\"lemon\"},{\"value\":1,\"target\":\"maize\",\"source\":\"lemon\"},{\"value\":1,\"target\":\"citrus limon\",\"source\":\"lemon\"},{\"value\":1,\"target\":\"lemon tree\",\"source\":\"lemon\"}],\"nodes\":[{\"name\":\"lemon\"},{\"name\":\"stinker\"},{\"name\":\"gamboge\"},{\"name\":\"lemon yellow\"},{\"name\":\"maize\"},{\"name\":\"citrus limon\"},{\"name\":\"lemon tree\"}]}";
-    $scope.myResponse = "{}"
+    $scope.myWord = "";
 
+    $scope.myResponse = "{}";
 
+    // d3 init stuff:
+    $scope.height = 400;
+    $scope.width= 600;
 
-    $scope.sendRequest = function(){
+    $scope.graphContainer = d3.select("#graph-container")
+                                .append("svg")
+                                .attr("width", $scope.width)
+                                .attr("height", $scope.height);
 
-        //$http.post("http://127.0.0.1:3000/graph/?", {word: $scope.myWord})
+    $scope.graphContainer.append("rect")
+                            .attr("width", $scope.width)
+                            .attr("height", $scope.height);
+
+    $scope.force = d3.layout.force()
+        .charge(-400)
+        .linkDistance(120)
+        .size([$scope.width, $scope.height]);
+
+    // sendRequest uses the angular $http module to send a POST for
+    // the data located at the following url
+    $scope.sendNgRequest = function(){
         $http({
             method:'POST',
             url:"http://localhost:3000/graph/",
-            headers: {withCredentials: false},
-            data: {word: $scope.myWord}
+            data: {word: $scope.myWord},
+            withCredentials: true
         })
         .success(function(response){
-            $scope.myResponse = response;
+                $scope.showGraph(response);
         })
         .error(function(response, status, headers, config){
-            console.log("not works :(");
-            console.log('response:');
-            console.log(response);
-            console.log('headers:');
-            console.log(headers);
-            console.log('status:');
-            console.log(status);
-            console.log('config:');
-            console.log(config);
+            console.log("not works T___T!");
         });
     }
+
+    $scope.sendD3Request = function (){
+// post? http://stackoverflow.com/questions/14970578/how-do-i-post-parameter-on-d3-json
+    var url = "http://localhost:3000/graph/?word=" + $scope.myWord;
+
+    d3.json(url, $scope.showGraph)
+
+    };
+
+    $scope.showGraph = function(graph){
+
+        console.log(graph.nodes);
+        console.log(graph.links);
+
+        //consume
+        $scope.force
+            .nodes(graph.nodes)
+            .links(graph.links)
+            .start();
+
+        $scope.link = $scope.graphContainer.selectAll(".link")
+            .data(graph.links)
+            .enter().append("line")
+            .attr("class", "link");
+
+        $scope.node = $scope.graphContainer.selectAll(".node")
+            .data(graph.nodes)
+            .enter().append("g")
+            .attr("class", "node")
+            .call($scope.force.drag);
+
+        $scope.node.append("circle")
+            .attr("r", 45)
+            .attr("fill-opacity", .1)
+            .style("fill", "#777");
+
+        $scope.node.append("text")
+            .attr("text-anchor", "middle")
+            .attr("fill", "black")
+            .text(function(d) { return d.label });
+
+        $scope.force.on("tick", function(){
+            $scope.link.attr("x1", function(d) { return d.source.x; })
+                       .attr("y1", function(d) { return d.source.y; })
+                       .attr("x2", function(d) { return d.target.x; })
+                       .attr("y2", function(d) { return d.target.y; });
+
+            $scope.node.attr("transform", function(d){ return "translate(" + d.x + "," + d.y + ")"});
+        });
+
+        console.log(graph.nodes);
+        console.log(graph.links);
+
+    };
 }
-
-
-
-// tried:
-//var xmlhttp = new XMLHttpRequest();
-//xmlhttp.onreadystatechange = function(){
-//    $scope.myResponse = xmlhttp.responseText;
-//}
-//
-//xmlhttp.open("get", "localhost:3000/graph/?word=word", true);
-//xmlhttp.send();
