@@ -1,0 +1,20 @@
+/*wordless black theme*/
+
+body {
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0)90%, rgba(0, 0, 0, 0.5)), url("../img/textures/black_graph.png");
+}
+
+.navbar {
+    background-color: black;
+    border: none;
+    box-shadow: 3px 0 5px 1px #555;
+
+}
+
+.navbar h1.navbar-brand {
+    color:;
+}
+
+.form-section {
+    background: #51be91;
+}

@@ -1,23 +1,85 @@
+/*styles for wordless*/
+
+/*fonts
+-----------------------------------------------------------------*/
+
+/*@font-face {
+    font-family: "Droid sans";
+}*/
+@import url(http://fonts.googleapis.com/css?family=Nunito);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+/*layout
+----------------------------*/
+
 body {
-    background-color : #777;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(221, 221, 221, 0.6), rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0)90%, rgba(221, 221, 221, 0.6)), 
+    url("../img/textures/graph.png");
+    font-family: "Droid sans", sans-serif;
 }
 
-form{
-    margin: 0px 30px;
+.container {
+    max-width: 1000px;
 }
 
-.title-text {
-    font-size: 90px;
-    font-family: 'Over the Rainbow', cursive;
+.form-section {
+   /* padding-top: 60px;*/
+    background: -webkit-linear-gradient(rgba(255, 227, 120, 0.5) 50%, rgba(255, 227, 120, 0.5) ), url("../img/textures/greyzz.png");
+    background-color: #F6EEA3;
+    /*rgba(130, 200, 155, 0.5)*/
 }
 
-.centered{
+/* nav bar
+--------------------------------------------------*/
+.navbar {
+    height: 60px;
+    box-shadow: 3px 0 5px 1px #eee;
+    margin-bottom: 0;
+
+}
+
+.navbar h1.navbar-brand {
+    font-size: 36px;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    padding: 0;
+}
+
+/* input fields
+------------------------------------------------*/
+form {
+    text-align: center;
+    padding:0;
+    margin: 50px 0;
+}
+input {
+    font-size: 48px;
+}
+
+input[type="text"]{
+    padding-left: 0.5em;
+    margin-right: 0.5em;
+}
+input[type="submit"]{
+    padding: 0 0.5em;
+}
+.btn-primary {
+    background: lightgrey;
+    border-radius: 0.25em;
+    border-width: 0 0 3px 0 ;
+    border-color: grey;
+}
+
+/* drawing space
+-------------------------------------------------*/
+.centered {
     float: none;
     margin: 0 auto;
 }
 
 #graph-container {
-    margin: 20px;
+    /*border: 1px solid red;*/
 
 }
 
@@ -40,4 +102,4 @@ rect {
 .link {
     stroke: #CECECE;
     stroke-opacity: .6;
-}
+}*/
