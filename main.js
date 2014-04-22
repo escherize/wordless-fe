@@ -50,8 +50,10 @@ function ThesaurusCtrl($scope, $http){
     $scope.sendD3Request = function (){
 // post? http://stackoverflow.com/questions/14970578/how-do-i-post-parameter-on-d3-json
     var url = "http://localhost:3000/graph/?word=" + $scope.myWord;
-
-    d3.json(url, $scope.showGraph)
+        // todo: put url back.  the string below is for localhost.
+        // to run locally: cd to the wordless-fe directory and run:
+        // python mock_server
+    d3.json("http://localhost:3333/stuff.json", $scope.showGraph)
 
     };
 
