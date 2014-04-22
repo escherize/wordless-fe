@@ -1,13 +1,22 @@
 /*styles for wordless*/
 
+/*fonts
+-----------------------------------------------------------------*/
+
+/*@font-face {
+    font-family: "Droid sans";
+}*/
 @import url(http://fonts.googleapis.com/css?family=Nunito);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 
 /*layout
 ----------------------------*/
 
 body {
     height: 100%;
-    /*background-color : #777;*/
+    background: -webkit-linear-gradient(left, rgba(221, 221, 221, 0.6), rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0)90%, rgba(221, 221, 221, 0.6)), 
+    url("../img/textures/graph.png");
+    font-family: "Droid sans", sans-serif;
 }
 
 .container {
@@ -15,15 +24,19 @@ body {
 }
 
 .form-section {
-    padding-top: 70px;
-    background-color: grey;
+   /* padding-top: 60px;*/
+    background: -webkit-linear-gradient(rgba(255, 227, 120, 0.5) 50%, rgba(255, 227, 120, 0.5) ), url("../img/textures/greyzz.png");
+    background-color: #F6EEA3;
+    /*rgba(130, 200, 155, 0.5)*/
 }
 
 /* nav bar
 --------------------------------------------------*/
 .navbar {
     height: 60px;
-    
+    box-shadow: 3px 0 5px 1px #eee;
+    margin-bottom: 0;
+
 }
 
 .navbar h1.navbar-brand {
@@ -38,7 +51,7 @@ body {
 form {
     text-align: center;
     padding:0;
-    margin: 40px 0;
+    margin: 50px 0;
 }
 input {
     font-size: 48px;
@@ -46,9 +59,16 @@ input {
 
 input[type="text"]{
     padding-left: 0.5em;
+    margin-right: 0.5em;
 }
 input[type="submit"]{
     padding: 0 0.5em;
+}
+.btn-primary {
+    background: lightgrey;
+    border-radius: 0.25em;
+    border-width: 0 0 3px 0 ;
+    border-color: grey;
 }
 
 /* drawing space
