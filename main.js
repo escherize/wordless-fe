@@ -87,7 +87,7 @@ function ThesaurusCtrl($scope, $http){
         $scope.node.append("text")
             .attr("text-anchor", "middle")
             .attr("fill", "black")
-            .text(function(d) { return d.label });
+            .text(function(d) { return d.name });
 
         $scope.force.on("tick", function(){
             $scope.link.attr("x1", function(d) { return d.source.x; })

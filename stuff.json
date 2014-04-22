@@ -1,9 +1,9 @@
 {
   "nodes":[
-    {"name":"A"},
-    {"name":"B"},
-    {"name":"C"},
-    {"name":"D"}
+    {"name":"Cool"},
+    {"name":"Cold"},
+    {"name":"Awesome"},
+    {"name":"Neato"}
   ],
   "links":[
     {"source":0,"target":1},
