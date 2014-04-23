@@ -14,9 +14,10 @@
 
 body {
     height: 100%;
-    background: -webkit-linear-gradient(left, rgba(221, 221, 221, 0.6), rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0)90%, rgba(221, 221, 221, 0.6)), 
+    background: -webkit-linear-gradient(left, rgba(221, 221, 221, 0.6), rgba(255, 220, 0, 0.5) 10%, rgba(255, 220, 0, 0.5)90%, rgba(221, 221, 221, 0.6)), 
     url("../img/textures/graph.png");
     font-family: "Droid sans", sans-serif;
+    color: white;
 }
 
 .container {
@@ -25,8 +26,8 @@ body {
 
 .form-section {
    /* padding-top: 60px;*/
-    background: -webkit-linear-gradient(rgba(255, 227, 120, 0.5) 50%, rgba(255, 227, 120, 0.5) ), url("../img/textures/greyzz.png");
-    background-color: #F6EEA3;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.7) );
+/* background-color: rgba(0, 0, 0, 0.8);*/
     /*rgba(130, 200, 155, 0.5)*/
 }
 
@@ -34,8 +35,11 @@ body {
 --------------------------------------------------*/
 .navbar {
     height: 60px;
-    box-shadow: 3px 0 5px 1px #eee;
+    /*box-shadow: 3px 0 5px 1px #eee;*/
     margin-bottom: 0;
+    background: #000;
+    border: none;
+    border-radius: 0;
 
 }
 
@@ -60,17 +64,47 @@ input {
 input[type="text"]{
     padding-left: 0.5em;
     margin-right: 0.5em;
-}
-input[type="submit"]{
-    padding: 0 0.5em;
+    border-width: 0 0 3px 0;
+    background:none;
+    border-color: white;
 }
 .btn-primary {
-    background: lightgrey;
     border-radius: 0.25em;
-    border-width: 0 0 3px 0 ;
-    border-color: grey;
+    padding: 0 0.5em;
+    border: 3px solid white;
+    background: none;
+    outline: none;
+    line-height: 48px;
+
+/*    border-width: 0 0 3px 0 ;
+    border-color: grey;*/
 }
 
+input[type="text"]:focus, .btn-primary:hover {
+    background-color: rgba(200, 200, 200, 0.1);
+    outline: none;
+}
+
+
+.btn-primary {
+    border-radius: 0.25em;
+    padding: 0 0.5em;
+    border: 3px solid white;
+    background: none;
+    outline: none;
+    font-size: 36px;
+/*    border-width: 0 0 3px 0 ;
+    border-color: grey;*/
+}
+
+.btn-primary:hover {
+    border-color: white;
+
+}
+.btn-primary:active, {
+    background-color: white;
+    color: black;
+}
 /* drawing space
 -------------------------------------------------*/
 .centered {
@@ -79,7 +113,7 @@ input[type="submit"]{
 }
 
 #graph-container {
-    /*border: 1px solid red;*/
+ /*   border: 1px solid red;*/
 
 }
 
@@ -102,4 +136,45 @@ rect {
 .link {
     stroke: #CECECE;
     stroke-opacity: .6;
+}
+
+
+/* icons
+-------------------------------------------------*/
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?m6pf92');
+    src:url('../fonts/icomoon.eot?#iefixm6pf92') format('embedded-opentype'),
+        url('../fonts/icomoon.woff?m6pf92') format('woff'),
+        url('../fonts/icomoon.ttf?m6pf92') format('truetype'),
+        url('../fonts/icomoon.svg?m6pf92#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    /*line-height: 1;*/
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*.icon-arrow-right:before {
+    : "\e600";
 }*/
+.icon-arrow-right2:before {
+    content: "\e601";
+}
+.icon-arrow-right3:before {
+    content: "\e602";
+}
+
+
+
