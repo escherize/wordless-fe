@@ -11,7 +11,9 @@
 
 /*layout
 ----------------------------*/
-
+html{
+    height:100%;
+}
 body {
     height: 100%;
     background: -webkit-linear-gradient(left, rgba(221, 221, 221, 0.6), rgba(255, 220, 0, 0.5) 10%, rgba(255, 220, 0, 0.5)90%, rgba(221, 221, 221, 0.6)), 
@@ -70,7 +72,7 @@ input[type="text"]{
 }
 .btn-primary {
     border-radius: 0.25em;
-    padding: 0 0.5em;
+    padding: 0.5em 0.5em;
     border: 3px solid white;
     background: none;
     outline: none;
@@ -86,9 +88,9 @@ input[type="text"]:focus, .btn-primary:hover {
 }
 
 
-.btn-primary {
+.button, .button:visited, .button:focus {
     border-radius: 0.25em;
-    padding: 0 0.5em;
+    padding: 0.25em 0.5em;
     border: 3px solid white;
     background: none;
     outline: none;
@@ -97,11 +99,11 @@ input[type="text"]:focus, .btn-primary:hover {
     border-color: grey;*/
 }
 
-.btn-primary:hover {
+.button:hover {
     border-color: white;
 
 }
-.btn-primary:active, {
+.button:active, {
     background-color: white;
     color: black;
 }
@@ -113,7 +115,8 @@ input[type="text"]:focus, .btn-primary:hover {
 }
 
 #graph-container {
- /*   border: 1px solid red;*/
+    height: 100%;
+    border: 1px solid red;
 
 }
 
@@ -152,7 +155,7 @@ rect {
     font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+.icon {
     font-family: 'icomoon';
     speak: none;
     font-style: normal;
@@ -169,12 +172,12 @@ rect {
 /*.icon-arrow-right:before {
     : "\e600";
 }*/
-.icon-arrow-right2:before {
+/*.icon-arrow-right2:before {
     content: "\e601";
 }
 .icon-arrow-right3:before {
     content: "\e602";
-}
+}*/
 
 
 

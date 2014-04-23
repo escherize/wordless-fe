@@ -14,16 +14,14 @@ function ThesaurusCtrl($scope, $http){
 
     // d3 init stuff:
     $scope.height = 400;
-    $scope.width= 600;
-
+    $scope.width  = parseFloat(d3.select("#graph-container").style('width'));
+    console.log($scope.width);
+    console.log($scope.height);
     $scope.graphContainer = d3.select("#graph-container")
                                 .append("svg")
                                 .attr("width", $scope.width)
                                 .attr("height", $scope.height);
 
-    $scope.graphContainer.append("rect")
-                            .attr("width", $scope.width)
-                            .attr("height", $scope.height);
 
     $scope.force = d3.layout.force()
         .charge(-400)
@@ -75,7 +73,8 @@ function ThesaurusCtrl($scope, $http){
 
         $scope.node = $scope.graphContainer.selectAll(".node")
             .data(graph.nodes)
-            .enter().append("g")
+            .enter()
+            .append("g")
             .attr("class", "node")
             .call($scope.force.drag);
 
