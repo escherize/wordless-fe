@@ -13,7 +13,7 @@ function ThesaurusCtrl($scope, $http){
     $scope.myResponse = "{}";
 
     // d3 init stuff:
-    $scope.height = 400;
+    $scope.height = parseFloat(d3.select("#graph-container").style('height'));
     $scope.width  = parseFloat(d3.select("#graph-container").style('width'));
     console.log($scope.width);
     console.log($scope.height);
@@ -21,7 +21,6 @@ function ThesaurusCtrl($scope, $http){
                                 .append("svg")
                                 .attr("width", $scope.width)
                                 .attr("height", $scope.height);
-
 
     $scope.force = d3.layout.force()
         .charge(-400)

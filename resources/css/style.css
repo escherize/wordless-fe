@@ -16,18 +16,19 @@ html{
 }
 body {
     height: 100%;
-    background: -webkit-linear-gradient(left, rgba(221, 221, 221, 0.6), rgba(255, 220, 0, 0.5) 10%, rgba(255, 220, 0, 0.5)90%, rgba(221, 221, 221, 0.6)), 
-    url("../img/textures/graph.png");
+    background: -webkit-linear-gradient(left, rgba(221, 221, 221, 0.6), rgba(255, 255, 255, 0) 10%, rgba(255, 220, 255, 0)90%, rgba(221, 221, 221, 0.6)), 
+    url("../img/textures/graph_lg.png");
     font-family: "Droid sans", sans-serif;
     color: white;
+    border-bottom: 5px solid mediumturquoise;
 }
 
 .container {
     max-width: 1000px;
 }
 
-.form-section {
-   /* padding-top: 60px;*/
+.top-section {
+       /* padding-top: 60px;*/
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.7) );
 /* background-color: rgba(0, 0, 0, 0.8);*/
     /*rgba(130, 200, 155, 0.5)*/
@@ -39,17 +40,31 @@ body {
     height: 60px;
     /*box-shadow: 3px 0 5px 1px #eee;*/
     margin-bottom: 0;
-    background: #000;
+    background: none;
     border: none;
     border-radius: 0;
+    
+    
 
+}
+.navbar .container{
+    border-top: 3px solid mediumturquoise;  
 }
 
 .navbar h1.navbar-brand {
-    font-size: 36px;
+    font-size: 24px;
     text-align: center;
     font-family: 'Nunito', sans-serif;
-    padding: 0;
+    padding-left: 50px;
+    color: white;
+    background-image: url("../img/icon1.svg");
+    background-repeat: no-repeat;
+    background-size: 36px;
+    margin-top:0;
+    background-position: left;
+
+
+
 }
 
 /* input fields
@@ -57,10 +72,13 @@ body {
 form {
     text-align: center;
     padding:0;
-    margin: 50px 0;
+    margin: 70px 0;
+    
 }
 input {
     font-size: 48px;
+    color:white;
+    border-color:white;
 }
 
 input[type="text"]{
@@ -68,12 +86,10 @@ input[type="text"]{
     margin-right: 0.5em;
     border-width: 0 0 3px 0;
     background:none;
-    border-color: white;
+  
 }
 .btn-primary {
-    border-radius: 0.25em;
-    padding: 0.5em 0.5em;
-    border: 3px solid white;
+    
     background: none;
     outline: none;
     line-height: 48px;
@@ -115,8 +131,9 @@ input[type="text"]:focus, .btn-primary:hover {
 }
 
 #graph-container {
-    height: 100%;
-    border: 1px solid red;
+   
+    /*border: 1px solid red;*/
+    min-height: 400px;
 
 }
 
