@@ -88,15 +88,6 @@ input[type="text"]{
     background:none;
   
 }
-.btn-primary {
-    
-    background: none;
-    outline: none;
-    line-height: 48px;
-
-/*    border-width: 0 0 3px 0 ;
-    border-color: grey;*/
-}
 
 input[type="text"]:focus, .btn-primary:hover {
     background-color: rgba(200, 200, 200, 0.1);
@@ -115,10 +106,10 @@ input[type="text"]:focus, .btn-primary:hover {
     border-color: grey;*/
 }
 
-.button:hover {
+/*.button:hover {
     border-color: white;
 
-}
+}*/
 .button:active, {
     background-color: white;
     color: black;

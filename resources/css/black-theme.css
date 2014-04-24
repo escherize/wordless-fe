@@ -10,10 +10,6 @@
       color: black;
 }
 
-/*.navbar h1.navbar-brand, .navbar h1.navbar-brand:hover, body, input {
-    color: black;
-}*/
-
 .navbar h1.navbar-brand {
     background-image: url("../img/icon1-black.svg");
 }
