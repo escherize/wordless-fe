@@ -15,8 +15,8 @@ function ThesaurusCtrl($scope, $http){
     // d3 init stuff:
     $scope.height = parseFloat(d3.select("#graph-container").style('height'));
     $scope.width  = parseFloat(d3.select("#graph-container").style('width'));
-    console.log($scope.width);
-    console.log($scope.height);
+    //console.log($scope.width);
+    //console.log($scope.height);
     $scope.graphContainer = d3.select("#graph-container")
                                 .append("svg")
                                 .attr("width", $scope.width)
@@ -27,39 +27,20 @@ function ThesaurusCtrl($scope, $http){
         .linkDistance(120)
         .size([$scope.width, $scope.height]);
 
-    // sendRequest uses the angular $http module to send a POST for
-    // the data located at the following url
-    $scope.sendNgRequest = function(){
-        $http({
-            method:'POST',
-            url:"http://localhost:3000/graph/",
-            data: {word: $scope.myWord},
-            withCredentials: true
-        })
-        .success(function(response){
-                $scope.showGraph(response);
-        })
-        .error(function(response, status, headers, config){
-            console.log("not works T___T!");
-        });
-    }
-
     $scope.sendD3Request = function (){
 // post? http://stackoverflow.com/questions/14970578/how-do-i-post-parameter-on-d3-json
-    var url = "http://localhost:3000/graph/?word=" + $scope.myWord;
-        // todo: put url back.  the string below is for localhost.
-        // to run locally: cd to the wordless-fe directory and run:
-        // python mock_server
-    d3.json("http://localhost:3333/stuff.json", $scope.showGraph)
-
+    var local_url = "http://localhost:3000/graph/?word=" + $scope.myWord;
+    var url ="http://wordless-dev.elasticbeanstalk.com/graph/?word=" + $scope.myWord;
+        // todo: put url back.  the local_url is for localhost.
+        //console.log ("sending reqest to: " + local_url);
+    d3.json(url, $scope.showGraph);
     };
 
     $scope.showGraph = function(graph){
 
-        console.log(graph.nodes);
-        console.log(graph.links);
+        //console.log(graph.nodes);
+        //console.log(graph.links);
 
-        //consume
         $scope.force
             .nodes(graph.nodes)
             .links(graph.links)
@@ -85,7 +66,7 @@ function ThesaurusCtrl($scope, $http){
         $scope.node.append("text")
             .attr("text-anchor", "middle")
             .attr("fill", "black")
-            .text(function(d) { return d.name });
+            .text(function(d) { return d.label });
 
         $scope.force.on("tick", function(){
             $scope.link.attr("x1", function(d) { return d.source.x; })
@@ -96,8 +77,8 @@ function ThesaurusCtrl($scope, $http){
             $scope.node.attr("transform", function(d){ return "translate(" + d.x + "," + d.y + ")"});
         });
 
-        console.log(graph.nodes);
-        console.log(graph.links);
+        //console.log(graph.nodes);
+        //console.log(graph.links);
 
     };
 }
