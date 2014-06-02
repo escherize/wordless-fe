@@ -9,9 +9,8 @@ myApp.config(['$httpProvider', function($httpProvider) {
 
 function ThesaurusCtrl($scope, $http){
     $scope.myWord = "";
-
     $scope.myResponse = "{}";
-
+    $scope.node = "";
     // d3 init stuff:
     $scope.height = parseFloat(d3.select("#graph-container").style('height'));
     $scope.width  = parseFloat(d3.select("#graph-container").style('width'));
@@ -33,13 +32,13 @@ function ThesaurusCtrl($scope, $http){
     var url ="http://wordless-dev.elasticbeanstalk.com/graph/?word=" + $scope.myWord;
         // todo: put url back.  the local_url is for localhost.
         //console.log ("sending reqest to: " + local_url);
-    d3.json(url, $scope.showGraph);
+    d3.json(local_url, $scope.showGraph);
     };
 
     $scope.showGraph = function(graph){
 
-        //console.log(graph.nodes);
-        //console.log(graph.links);
+        console.log(graph.nodes);
+        console.log(graph.links);
 
         $scope.force
             .nodes(graph.nodes)
@@ -50,7 +49,7 @@ function ThesaurusCtrl($scope, $http){
             .data(graph.links)
             .enter().append("line")
             .attr("class", "link");
-
+        
         $scope.node = $scope.graphContainer.selectAll(".node")
             .data(graph.nodes)
             .enter()

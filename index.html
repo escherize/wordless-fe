@@ -1,34 +1,23 @@
 <!doctype html>
 <html ng-app="myApp"> <!-- initializes angular app-->
 <head>
-
     <meta name="viewport" content="width=device-width initial-scale=1.0"> 
     <title>Wordless</title>
-
     <!--angular-->
     <script src="resources/js/angular.js"></script>
-
     <!--d3-->
     <script src="resources/js/d3.v3.min.js" charset="utf-8"></script>
-
-    
     <link rel="stylesheet" href="resources/css/bootstrap.css">
     <link rel="stylesheet" href="resources/css/style.css">
     <link rel="stylesheet" href="resources/css/black-theme.css">
     <!--<link href='http://fonts.googleapis.com/css?family=Over+the+Rainbow' rel='stylesheet' type='text/css'>-->
-
-
 </head>
 <body>
-
 <div ng-controller="ThesaurusCtrl">
     <div class="top-section">
         <div class="navbar navbar-default">
             <div class="container"><h1 class="navbar-brand">Wordless</h1></div>
         </div>
-
-
-    
         <div class="form-area container">
             <form ng-submit="sendD3Request()">
                 <input class="input"  type="text" placeholder="Wordless?" size="15" ng-model="myWord" autofocus >
@@ -39,8 +28,5 @@
     <div id="graph-container" class="container"></div>
 </div>
 </body>
-
-<!--main scripts-->
-<!--<script src="init.js"></script>-->
 <script src="main.js"></script>
 </html>
