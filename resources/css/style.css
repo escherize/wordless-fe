@@ -1,22 +1,23 @@
 /*styles for wordless*/
 
 /*fonts
------------------------------------------------------------------*/
+  ----------------------------*/
 
 /*@font-face {
-    font-family: "Droid sans";
-}*/
+  font-family: "Droid sans";
+  }*/
 @import url(http://fonts.googleapis.com/css?family=Nunito);
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 
 /*layout
-----------------------------*/
+  ----------------------------*/
 html{
     height:100%;
 }
+
 body {
     height: 100%;
-    background: -webkit-linear-gradient(left, rgba(221, 221, 221, 0.6), rgba(255, 255, 255, 0) 10%, rgba(255, 220, 255, 0)90%, rgba(221, 221, 221, 0.6)), 
+    background: -webkit-linear-gradient(left, rgba(221, 221, 221, 0.6), rgba(255, 255, 255, 0) 10%, rgba(255, 220, 255, 0)90%, rgba(221, 221, 221, 0.6)),
     url("../img/textures/graph_lg.png");
     font-family: "Droid sans", sans-serif;
     color: white;
@@ -28,14 +29,14 @@ body {
 }
 
 .top-section {
-       /* padding-top: 60px;*/
+    /* padding-top: 60px;*/
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.7) );
 /* background-color: rgba(0, 0, 0, 0.8);*/
-    /*rgba(130, 200, 155, 0.5)*/
+/*rgba(130, 200, 155, 0.5)*/
 }
 
 /* nav bar
---------------------------------------------------*/
+   ---------------------------*/
 .navbar {
     height: 60px;
     /*box-shadow: 3px 0 5px 1px #eee;*/
@@ -43,12 +44,12 @@ body {
     background: none;
     border: none;
     border-radius: 0;
-    
-    
+
+
 
 }
 .navbar .container{
-    border-top: 3px solid mediumturquoise;  
+    border-top: 3px solid mediumturquoise;
 }
 
 .navbar h1.navbar-brand {
@@ -68,12 +69,12 @@ body {
 }
 
 /* input fields
-------------------------------------------------*/
+   ---------------------------*/
 form {
     text-align: center;
     padding:0;
     margin: 70px 0;
-    
+
 }
 input {
     font-size: 48px;
@@ -86,7 +87,7 @@ input[type="text"]{
     margin-right: 0.5em;
     border-width: 0 0 3px 0;
     background:none;
-  
+
 }
 
 input[type="text"]:focus, .btn-primary:hover {
@@ -103,11 +104,11 @@ input[type="text"]:focus, .btn-primary:hover {
     outline: none;
     font-size: 36px;
 /*    border-width: 0 0 3px 0 ;
-    border-color: grey;*/
+      border-color: grey;*/
 }
 
 /*.button:hover {
-    border-color: white;
+  border-color: white;
 
 }*/
 .button:active, {
@@ -115,14 +116,14 @@ input[type="text"]:focus, .btn-primary:hover {
     color: black;
 }
 /* drawing space
--------------------------------------------------*/
+   ---------------------------*/
 .centered {
     float: none;
     margin: 0 auto;
 }
 
 #graph-container {
-   
+
     /*border: 1px solid red;*/
     min-height: 400px;
 
@@ -140,8 +141,9 @@ rect {
 }
 
 .node {
-    /*stroke: #fff;*/
-    /*stroke-width: 2;*/
+    font-size: 20px;
+/*stroke: #fff;*/
+/*stroke-width: 2;*/
 }
 
 .link {
@@ -151,14 +153,14 @@ rect {
 
 
 /* icons
--------------------------------------------------*/
+   ---------------------------*/
 @font-face {
     font-family: 'icomoon';
     src:url('../fonts/icomoon.eot?m6pf92');
     src:url('../fonts/icomoon.eot?#iefixm6pf92') format('embedded-opentype'),
-        url('../fonts/icomoon.woff?m6pf92') format('woff'),
-        url('../fonts/icomoon.ttf?m6pf92') format('truetype'),
-        url('../fonts/icomoon.svg?m6pf92#icomoon') format('svg');
+    url('../fonts/icomoon.woff?m6pf92') format('woff'),
+    url('../fonts/icomoon.ttf?m6pf92') format('truetype'),
+    url('../fonts/icomoon.svg?m6pf92#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -178,14 +180,11 @@ rect {
 }
 
 /*.icon-arrow-right:before {
-    : "\e600";
-}*/
+  : "\e600";
+  }*/
 /*.icon-arrow-right2:before {
-    content: "\e601";
-}
-.icon-arrow-right3:before {
-    content: "\e602";
-}*/
-
-
-
+  content: "\e601";
+  }
+  .icon-arrow-right3:before {
+  content: "\e602";
+  }*/

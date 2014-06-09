@@ -22,17 +22,18 @@ function ThesaurusCtrl($scope, $http){
                                 .attr("height", $scope.height);
 
     $scope.force = d3.layout.force()
-        .charge(-400)
-        .linkDistance(120)
+        .charge(-900)
+        .linkDistance(80)
         .size([$scope.width, $scope.height]);
 
     $scope.sendD3Request = function (){
 // post? http://stackoverflow.com/questions/14970578/how-do-i-post-parameter-on-d3-json
     var local_url = "http://localhost:3000/graph/?word=" + $scope.myWord;
     var url ="http://wordless-dev.elasticbeanstalk.com/graph/?word=" + $scope.myWord;
+    var aws_url = "http://ec2-54-187-218-134.us-west-2.compute.amazonaws.com:3000/graph/?word=" + $scope.myWord;
         // todo: put url back.  the local_url is for localhost.
         //console.log ("sending reqest to: " + local_url);
-    d3.json(local_url, $scope.showGraph);
+    d3.json(aws_url, $scope.showGraph);
     };
 
     $scope.showGraph = function(graph){
