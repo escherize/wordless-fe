@@ -52,10 +52,10 @@ function ThesaurusCtrl($scope, $http){
         $scope.graphContainer.selectAll("circle").remove();
 
         // add new link and node
-        $scope.link.enter().append("line").attr("class", "link");
         $scope.node.enter().append("g").attr("class", "node").call($scope.force.drag);
         $scope.node.append("circle").attr("r", 45).attr("fill-opacity", .1).style("fill", "#777");
         $scope.node.append("text").attr("text-anchor", "middle").attr("fill", "black").text(function(d) { return d.label });
+        $scope.link.enter().append("line").attr("class", "link");
         
         
         // start graph pysics
