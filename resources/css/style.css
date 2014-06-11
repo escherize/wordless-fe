@@ -2,10 +2,6 @@
 
 /*fonts
   ----------------------------*/
-
-/*@font-face {
-  font-family: "Droid sans";
-  }*/
 @import url(http://fonts.googleapis.com/css?family=Nunito);
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 
@@ -17,7 +13,11 @@ html{
 
 body {
     height: 100%;
-    background: -webkit-linear-gradient(left, rgba(221, 221, 221, 0.6), rgba(255, 255, 255, 0) 10%, rgba(255, 220, 255, 0)90%, rgba(221, 221, 221, 0.6)),
+    background: -webkit-linear-gradient(left,
+                                        rgba(221, 221, 221, 0.6),
+                                        rgba(255, 255, 255, 0) 10%,
+                                        rgba(255, 220, 255, 0) 90%,
+                                        rgba(221, 221, 221, 0.6)),
     url("../img/textures/graph_lg.png");
     font-family: "Droid sans", sans-serif;
     color: white;
@@ -26,13 +26,14 @@ body {
 
 .container {
     max-width: 1000px;
+    max-height: 200px;
 }
 
 .top-section {
     /* padding-top: 60px;*/
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.7) );
-/* background-color: rgba(0, 0, 0, 0.8);*/
-/*rgba(130, 200, 155, 0.5)*/
+    /* background-color: rgba(0, 0, 0, 0.8);*/
+    /* rgba(130, 200, 155, 0.5)*/
 }
 
 /* nav bar
@@ -141,9 +142,21 @@ rect {
 }
 
 .node {
-    font-size: 20px;
+    font-size: 25px;
+    r: 45;
+    fill:#777;
 /*stroke: #fff;*/
 /*stroke-width: 2;*/
+}
+
+g:hover {
+    stroke:black;
+    cursor:crosshair;
+
+}
+
+.node text {
+    color:black;
 }
 
 .link {

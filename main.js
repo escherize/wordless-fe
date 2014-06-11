@@ -39,7 +39,7 @@ function ThesaurusCtrl($scope, $http){
 
         console.log(graph.nodes);
         console.log(graph.links);
-        
+
         // setup link and node
         $scope.node = $scope.graphContainer.selectAll(".node").data(graph.nodes);
         $scope.link = $scope.graphContainer.selectAll(".link").data(graph.links);
@@ -52,11 +52,14 @@ function ThesaurusCtrl($scope, $http){
         $scope.graphContainer.selectAll("circle").remove();
 
         // add new link and node
-        $scope.node.enter().append("g").attr("class", "node").call($scope.force.drag).on("click", function(d){
+        $scope.node.enter().append("g").attr("class", "node")
+            .on("click", function(d){
                 $scope.myWord = d.label;
                 $scope.sendD3Request();
-            });
-        $scope.node.append("circle").attr("r", 45).attr("fill-opacity", .1).style("fill", "#777");
+            })
+            .call($scope.force.drag);
+
+        $scope.node.append("circle");
 
         $scope.node.append("text").attr("text-anchor", "middle").attr("fill", "black").text(function(d) { return d.label });
         $scope.link.enter().append("line").attr("class", "link");
