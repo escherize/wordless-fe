@@ -24,31 +24,29 @@ body {
     border-bottom: 5px solid mediumturquoise;
 }
 
-.container {
-    max-width: 1000px;
-    max-height: 200px;
-}
+/* .container { */
+/*     max-width: 1000px; */
+/*     max-height: 200px; */
+/* } */
 
 .top-section {
-    /* padding-top: 60px;*/
+/* padding-top: 60px;*/
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.7) );
-    /* background-color: rgba(0, 0, 0, 0.8);*/
-    /* rgba(130, 200, 155, 0.5)*/
+/* background-color: rgba(0, 0, 0, 0.8);*/
+/* rgba(130, 200, 155, 0.5)*/
 }
 
 /* nav bar
    ---------------------------*/
 .navbar {
-    height: 60px;
+    height: 30px;
     /*box-shadow: 3px 0 5px 1px #eee;*/
     margin-bottom: 0;
     background: none;
     border: none;
     border-radius: 0;
-
-
-
 }
+
 .navbar .container{
     border-top: 3px solid mediumturquoise;
 }
@@ -61,12 +59,9 @@ body {
     color: white;
     background-image: url("../img/icon1.svg");
     background-repeat: no-repeat;
-    background-size: 36px;
+    background-size: 30px;
     margin-top:0;
     background-position: left;
-
-
-
 }
 
 /* input fields
@@ -124,43 +119,35 @@ input[type="text"]:focus, .btn-primary:hover {
 }
 
 #graph-container {
-
-    /*border: 1px solid red;*/
+    /* border: 1px solid red; */
     min-height: 400px;
-
 }
-
 
 /* Stuff for SVG. */
 line {
     stroke-width: 3;
 }
 
-
 rect {
     fill: none;
 }
 
 .node {
-    font-size: 25px;
-    r: 45;
     fill:#777;
-/*stroke: #fff;*/
-/*stroke-width: 2;*/
+    stroke-width: 2;
+    font-size: 25px;
 }
 
 g:hover {
-    stroke:black;
-    cursor:crosshair;
-
+    cursor:pointer;
 }
 
-.node text {
+g text {
     color:black;
 }
 
-.link {
-    stroke: #CECECE;
+line {
+    stroke: #000;
     stroke-opacity: .1;
 }
 

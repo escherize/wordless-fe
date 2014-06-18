@@ -6,29 +6,27 @@ myApp.config(['$httpProvider', function($httpProvider) {
     delete $httpProvider.defaults.headers.common['Content-Type'];
 }]);
 
+var w = window,
+d = document,
+e = d.documentElement,
+g = d.getElementsByTagName('body')[0],
+x = w.innerWidth || e.clientWidth || g.clientWidth,
+y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+min = function(a, b){ if (a < b) return a; else return b;}
+current_charge = function(height, width){ return -2000;}
+
+
 function ThesaurusCtrl($scope, $http){
     $scope.myWord = "";
     $scope.myResponse = "{}";
     $scope.node = "";
     // d3 init stuff:
-    $scope.height = parseFloat(d3.select("#graph-container").style('height'));
-    $scope.width  = parseFloat(d3.select("#graph-container").style('width'));
-    //console.log($scope.width);
-    //console.log($scope.height);
-    $scope.graphContainer = d3.select("#graph-container")
-        .append("svg")
-        .attr("width", $scope.width)
-        .attr("height", $scope.height);
 
-    $scope.force = d3.layout.force()
-        .charge(-900)
-        .linkDistance(80)
-        .size([$scope.width, $scope.height]);
 
     $scope.sendD3Request = function (){
         // post? http://stackoverflow.com/questions/14970578/how-do-i-post-parameter-on-d3-json
         var local_url = "http://localhost:3000/graph/?word=" + $scope.myWord;
-        var url ="http://wordless-dev.elasticbeanstalk.com/graph/?word=" + $scope.myWord;
         var aws_url = "http://ec2-54-187-218-134.us-west-2.compute.amazonaws.com:3000/graph/?word=" + $scope.myWord;
         // todo: put url back.  the local_url is for localhost.
         //console.log ("sending reqest to: " + local_url);
@@ -37,8 +35,21 @@ function ThesaurusCtrl($scope, $http){
 
     $scope.showGraph = function(graph){
 
+        // make sure data's correct
         console.log(graph.nodes);
         console.log(graph.links);
+
+
+        // get conditions for when we were called
+        $scope.height = y;
+        $scope.width  = x;
+
+
+
+        d3.select("svg").remove();
+        $scope.graphContainer = d3.select("#graph-container").append("svg").attr("width", $scope.width).attr("height", $scope.height);
+        $scope.force = d3.layout.force().charge(current_charge($scope.height, $scope.width))
+            .linkDistance( min(x, y) * .1).size([$scope.width, $scope.height - 300]);
 
         // setup link and node
         $scope.node = $scope.graphContainer.selectAll(".node").data(graph.nodes);
@@ -81,4 +92,14 @@ function ThesaurusCtrl($scope, $http){
         //console.log(graph.links);
 
     };
+
+    function updateWindow(){
+        x = w.innerWidth || e.clientWidth || g.clientWidth;
+        y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+        $scope.graphContainer.attr("width", x);
+        $scope.graphContainer.attr("height", y - 350);
+        $scope.force.charge(current_charge(x, y));
+    }
+    window.onresize = updateWindow;
+
 }
